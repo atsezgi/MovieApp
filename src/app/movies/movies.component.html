@@ -1,1 +1,18 @@
-<h4>Movies html</h4>
+<div class="card" ***ngIf="selectedMovie">
+    <div class="card-body">
+        <span class="badge badge-warning">
+            id: {{ selectedMovie.id }} name: {{ selectedMovie.name }}
+        </span>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header"> {{ title }} </div>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let movie of movies" (click)="onSelect(movie)" class="list-group-item" [class.active]="movie===selectedMovie">
+
+            <!-- 1. movies is in the movie.component.ts-->
+            <span class="badge badge-primary"> {{movie.id}}-</span>{{movie.name}}
+            <span class="close">x</span> </li>
+    </ul>
+</div>
